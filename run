@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cd $(cd $(dirname $0); pwd)
+if ! screen -list | grep -q "boss"; then
+screen -S boss lua ./inc/BOT.lua
+fi
+screen -X -S boss kill
+screen -S boss lua ./inc/BOT.lua
